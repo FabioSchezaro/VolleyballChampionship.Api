@@ -1,0 +1,49 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/token",
+      "DownstreamScheme": "https",
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "VolleyballChampionship.Api v1",
+          "Port": 44369
+        }
+      ],
+      "UpstreamPathTemplate": "/token",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/gateway/{everything}",
+      "DownstreamScheme": "https",
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "VolleyballChampionship.Gateway.Api v1",
+          "Port": 44387
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/{everything}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "https",
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "VolleyballChampionship.Api v1",
+          "Port": 44369
+        }
+      ],
+      "UpstreamPathTemplate": "/api/{everything}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ],
+      "UpstreamHeaderTransform": {
+        "X-Swagger": "True"
+      },
+      "QoSOptions": {
+        "TimeoutValue": 480000
+      }
+    }
+  ]
+}
