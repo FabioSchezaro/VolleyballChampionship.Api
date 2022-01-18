@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using VolleyballChampionship.Bll.BaseBll;
@@ -47,6 +48,10 @@ namespace VolleyballChampionship.Bll
             }
 
             return success;
+        }
+        public Task<List<GroupInfo>> GetByParametersAsync(GroupInfo info)
+        {
+            return _dal.GetByParametersAsync(info, _baseDal.GetConnection());
         }
     }
 }

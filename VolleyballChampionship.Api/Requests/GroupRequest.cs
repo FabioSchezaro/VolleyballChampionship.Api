@@ -3,7 +3,7 @@ using VolleyballChampionship.Api.Requests.Base;
 
 namespace VolleyballChampionship.Api.Requests
 {
-    public class GroupRequest : BaseRequest
+    public class GroupRequest
     {
         public int Id { get; set; }
         public string Description { get; set; }

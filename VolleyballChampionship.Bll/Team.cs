@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using VolleyballChampionship.Bll.BaseBll;
 using VolleyballChampionship.Bll.Infra;
 using VolleyballChampionship.Dal.Infra;
@@ -11,6 +13,11 @@ namespace VolleyballChampionship.Bll
     {
         public Team(ITeamDal dal, IBaseDal baseDal, IHttpContextAccessor httpContextAccessor) : base(dal, baseDal, httpContextAccessor)
         {
+        }
+
+        public Task<List<TeamInfo>> GetByParametersAsync(TeamInfo info)
+        {
+            return _dal.GetByParametersAsync(info, _baseDal.GetConnection());
         }
     }
 }
